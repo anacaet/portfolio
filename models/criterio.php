@@ -5,11 +5,12 @@ class Criterio extends AppModel {
 		'area_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'nome' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'O nome do critério é obrigatório',				
 			),
 		),
 	);
@@ -19,9 +20,6 @@ class Criterio extends AppModel {
 		'Area' => array(
 			'className' => 'Area',
 			'foreignKey' => 'area_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 
@@ -32,14 +30,6 @@ class Criterio extends AppModel {
 			'foreignKey' => 'criterio_id',
 			'associationForeignKey' => 'projeto_id',
 			'unique' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
 		)
 	);
 

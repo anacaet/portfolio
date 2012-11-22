@@ -1,81 +1,35 @@
 <div class="criterios view">
-<h2><?php  __('Criterio');?></h2>
+<h2><?php  __('Critério');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nome'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $criterio['Criterio']['id']; ?>
+			<?php echo $criterio['Criterio']['nome']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Descricao'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Área'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $this->Html->link($criterio['Area']['nome'], array('controller' => 'areas', 'action' => 'view', $criterio['Area']['id'])); ?>
+			&nbsp;
+		</dd>
+		<?php if($criterio['Criterio']['descricao']):?>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Descrição'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $criterio['Criterio']['descricao']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Area'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($criterio['Area']['id'], array('controller' => 'areas', 'action' => 'view', $criterio['Area']['id'])); ?>
-			&nbsp;
-		</dd>
+		<?php endif;?>
 	</dl>
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Criterio', true), array('action' => 'edit', $criterio['Criterio']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Criterio', true), array('action' => 'delete', $criterio['Criterio']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $criterio['Criterio']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Criterios', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Criterio', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Areas', true), array('controller' => 'areas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Area', true), array('controller' => 'areas', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Projetos', true), array('controller' => 'projetos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Projeto', true), array('controller' => 'projetos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $criterio['Criterio']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Deletar', true), array('action' => 'delete', $criterio['Criterio']['id']), null, sprintf(__('Tem certeza que deseja deletar o critério %s?', true), $criterio['Criterio']['nome'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Critérios', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Critério', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Áreas', true), array('controller' => 'areas', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nova Área', true), array('controller' => 'areas', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Projetos', true), array('controller' => 'projetos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Projeto', true), array('controller' => 'projetos', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
-<div class="related">
-	<h3><?php __('Related Projetos');?></h3>
-	<?php if (!empty($criterio['Projeto'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Gerente'); ?></th>
-		<th><?php __('Descricao'); ?></th>
-		<th><?php __('Status Id'); ?></th>
-		<th><?php __('Titulo'); ?></th>
-		<th><?php __('Integrantes'); ?></th>
-		<th><?php __('Data Inicio'); ?></th>
-		<th><?php __('Data Fim'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($criterio['Projeto'] as $projeto):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $projeto['id'];?></td>
-			<td><?php echo $projeto['gerente'];?></td>
-			<td><?php echo $projeto['descricao'];?></td>
-			<td><?php echo $projeto['status_id'];?></td>
-			<td><?php echo $projeto['titulo'];?></td>
-			<td><?php echo $projeto['integrantes'];?></td>
-			<td><?php echo $projeto['data_inicio'];?></td>
-			<td><?php echo $projeto['data_fim'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'projetos', 'action' => 'view', $projeto['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'projetos', 'action' => 'edit', $projeto['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'projetos', 'action' => 'delete', $projeto['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $projeto['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Projeto', true), array('controller' => 'projetos', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>

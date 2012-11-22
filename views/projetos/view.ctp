@@ -1,4 +1,95 @@
 <div class="projetos view">
+<h2><?php  __('Projeto');?></h2>
+	<dl><?php $i = 0; $class = ' class="altrow"';?>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Gerente'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $projeto['Projeto']['gerente']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Título'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $projeto['Projeto']['titulo']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Status'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $projeto['Status']['descricao']; ?>
+			&nbsp;
+		</dd>
+		
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Descrição'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $projeto['Projeto']['descricao']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Qtde de integrantes'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $projeto['Projeto']['integrantes']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Data de início'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $time->format('d/m/Y',$projeto['Projeto']['data_inicio']); ?>
+			&nbsp;
+		</dd>
+		<?php if($projeto['Projeto']['data_fim']):?>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Data de término'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $time->format('d/m/Y',$projeto['Projeto']['data_fim']); ?>
+			&nbsp;
+		</dd>
+		<?php endif;?>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Pontuação');?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $projeto['ProjetoPonto']['soma_final']." pontos";?>
+			&nbsp;
+		</dd>
+		
+	</dl>
+</div>
+<div class="actions">
+	<h3><?php __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $projeto['Projeto']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Deletar', true), array('action' => 'delete', $projeto['Projeto']['id']), null, sprintf(__('Tem certeza que deseja deletar o projeto %s?', true), $projeto['Projeto']['titulo'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Projetos', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Projeto', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Status', true), array('controller' => 'statuses', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Status', true), array('controller' => 'statuses', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Critérios', true), array('controller' => 'criterios', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Critério', true), array('controller' => 'criterios', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
+<div class="projeto_criterios">
+	<h3><?php __('Critérios');?></h3>
+	<?php if (!empty($projeto['Criterio'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php __('Área'); ?></th>
+		<th><?php __('Critério'); ?></th>
+		<th><?php __('Pontuação'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		$criterios = Set::sort($projeto['Criterio'], '{n}.Area.nome', 'asc');
+		
+		foreach ($criterios as $criterio):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+			$pontuacao = $criterio['Area']['peso'] * $criterio['CriteriosProjeto']['peso']; 
+		?>
+		<tr<?php echo $class;?>>
+			<td><?php echo $criterio['Area']['nome'];?></td>
+			<td><?php echo $criterio['nome'];?></td>
+			<td><?php echo $pontuacao;?></td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+</div>
+<div class="projetos_grafico">
 	<?php
 		$this->Javascript->link('http://d3js.org/d3.v3.min.js', false);
 	
@@ -12,7 +103,7 @@
 			var width = 500,
 			    height = 300,
 			    radius = Math.min(width, height) / 2,
-			    color = d3.scale.category20();
+			    color = d3.scale.category10();
 			
 			var svg = d3.select('body').append('svg')
 			    .attr('width', width)
@@ -72,3 +163,4 @@
 		");
 	?>
 </div>
+

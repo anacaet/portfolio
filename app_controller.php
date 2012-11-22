@@ -31,4 +31,10 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
+		var $helpers = array('Html', 'Form', 'Session', 'Time', 'Javascript');
+	    
+	    function beforeFilter() 
+	    {
+	    	Configure::write('Config.language', 'pt-br');
+	    }
 }

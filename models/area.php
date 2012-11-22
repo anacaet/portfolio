@@ -4,22 +4,14 @@ class Area extends AppModel {
 	var $validate = array(
 		'peso' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => array('range', -1, 11),        
+				'message' => 'Por favor, forneça um número entre 0 e 10.'
 			),
 		),
 		'nome' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'O nome da área é obrigatório',				
 			),
 		),
 	);
@@ -29,15 +21,6 @@ class Area extends AppModel {
 		'Criterio' => array(
 			'className' => 'Criterio',
 			'foreignKey' => 'area_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		)
 	);
 

@@ -49,7 +49,7 @@ class CriteriosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Criterio->read(null, $id);
 		}
-		$areas = $this->Criterio->Area->find('list');
+		$areas = $this->Criterio->Area->find('list', array('fields'=>'Area.nome'));
 		$projetos = $this->Criterio->Projeto->find('list');
 		$this->set(compact('areas', 'projetos'));
 	}

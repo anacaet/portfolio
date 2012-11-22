@@ -1,9 +1,8 @@
 <div class="statuses index">
-	<h2><?php __('Statuses');?></h2>
+	<h2><?php __('Status');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('descricao');?></th>
+			<th><?php echo $this->Paginator->sort('Status');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -15,12 +14,10 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $status['Status']['id']; ?>&nbsp;</td>
 		<td><?php echo $status['Status']['descricao']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $status['Status']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $status['Status']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $status['Status']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $status['Status']['id'])); ?>
+			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $status['Status']['id']), null, sprintf(__('Tem certeza que deseja deletar o status %s?', true), $status['Status']['descricao'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -42,8 +39,8 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Status', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Projetos', true), array('controller' => 'projetos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Projeto', true), array('controller' => 'projetos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Status', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Projetos', true), array('controller' => 'projetos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Novo Projeto', true), array('controller' => 'projetos', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

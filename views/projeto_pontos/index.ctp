@@ -11,7 +11,7 @@
 		//debugger;
 		var diameter = 500,
 		    format = d3.format(',d'),
-		    color = d3.scale.category20();
+		    color = d3.scale.category10();
 		
 		var bubble = d3.layout.pack()
 		    .sort(null)
@@ -53,7 +53,7 @@
 	  node.append('text')
 	      .attr('dy', '.3em')
 	      .style('text-anchor', 'middle')
-	      .text(function(d) { return d.name; });
+	      .text(function(d) { return d.name  + ': ' + format(d.value); });
 	      
 		d3.select(self.frameElement).style('height', diameter + 'px');
 	");
@@ -63,11 +63,3 @@
 	
 	
 ?>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Projeto Ponto', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Projetos', true), array('controller' => 'projetos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Projeto', true), array('controller' => 'projetos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

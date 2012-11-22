@@ -17,3 +17,6 @@
 2012-11-17 00:27:12 Notice: Notice (8): Undefined variable: data in [/var/www/cake/portfolio/views/projetos/add.ctp, line 8]
 2012-11-17 00:27:59 Notice: Notice (8): Undefined variable: projetinho in [/var/www/cake/portfolio/views/projetos/add.ctp, line 8]
 2012-11-19 22:34:47 Notice: Notice (8): Undefined property: View::$Javascript in [/var/www/cake/portfolio/views/projeto_pontos/index.ctp, line 2]
+2012-11-22 00:10:57 Notice: Notice (8): Undefined property: Projeto::$CriterioProjetos in [/var/www/cake/portfolio/controllers/projetos_controller.php, line 101]
+2012-11-22 00:11:24 Notice: Notice (8): Undefined variable: criteriosPonto in [/var/www/cake/portfolio/views/projetos/edit.ctp, line 36]
+2012-11-22 00:20:52 Notice: Notice (8): Undefined variable: sucess in [/var/www/cake/portfolio/controllers/projetos_controller.php, line 127]

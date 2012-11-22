@@ -79,13 +79,12 @@ ul, li {
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
 	color: #fff;
 	padding: 0px 30px;
 }
 #header h1 a {
-	color: #fff;
-	background: #003d4c;
+	color: #005580;
+	/*background: #003d4c;*/
 	font-weight: normal;
 	text-decoration: none;
 }
@@ -123,7 +122,7 @@ div.actions {
 }
 div.actions h3 {
 	padding-top:0;
-	color:#777;
+	color:#003d4c;
 }
 
 
@@ -237,7 +236,7 @@ fieldset {
 }
 fieldset legend {
 	background:#fff;
-	color: #e32;
+	color: #003d4c;
 	font-size: 160%;
 	font-weight: bold;
 }
@@ -324,16 +323,16 @@ input[type=submit] {
 }
 form .submit input[type=submit] {
 	background:#62af56;
-	background: -webkit-gradient(linear, left top, left bottom, from(#a8ea9c), to(#62af56));
-	background-image: -moz-linear-gradient(top, #a8ea9c, #62af56);
-	border-color: #2d6324;
-	color: #000;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#003d4c));
+	background-image: -moz-linear-gradient(top, #ccc, #003d4c);
+	border-color: #003d4c;
+	color: #ccc;
 	text-shadow: #8cee7c 0px 1px 0px;
 }
 form .submit input[type=submit]:hover {
-	background:#4ca83d;
-	background: -webkit-gradient(linear, left top, left bottom, from(#85e573), to(#4ca83d));
-	background-image: -moz-linear-gradient(top, #85e573, #4ca83d);
+	background:#003d4c;
+	background: -webkit-gradient(linear, left top, left bottom, from(#003d4c), to(#ccc));
+	background-image: -moz-linear-gradient(top, #003d4c, #ccc);
 }
 
 /** Notices and Errors **/
@@ -406,11 +405,11 @@ div.actions ul li a,
 td.actions a {
 	font-weight:normal;
 	padding: 4px 8px;
-	background:#e6e49f;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#e6e49f));
-	background-image: -moz-linear-gradient(top, #f1f1d4, #e6e49f);
-	color:#333;
-	border:1px solid #aaac62;
+	background:#003d4c;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#003d4c));
+	background-image: -moz-linear-gradient(top, #ccc, #003d4c);
+	color:#ccc;
+	border:1px solid #ccc;
 	-webkit-border-radius:8px;
 	-moz-border-radius:8px;
 	border-radius:8px;
@@ -421,8 +420,8 @@ td.actions a {
 input[type=submit]:hover,
 div.actions ul li a:hover,
 td.actions a:hover {
-	background: #f0f09a;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
+	background: #003d4c;
+	background: -webkit-gradient(linear, left top, left bottom, from(#003d4c), to(#ccc));
 }
 
 /** Related **/
@@ -532,4 +531,60 @@ div.code-coverage-results span.result-ok {
 }
 div.code-coverage-results span.result-good {
 	color: #0a0;
+}
+
+
+.proj_titulo 
+{
+	display:block;
+	width: 300px;
+	margin-top: -93px;
+	margin-left: 250px;
+}
+
+.proj_titulo input
+{
+	width: 270px;
+}
+
+.proj_status 
+{
+	display:block;
+	width: 300px;
+	margin-top: -93px;
+	margin-left: 570px;
+}
+
+.proj_integrantes
+{
+	display:block;
+	width: 300px;
+	position: relative;
+	top: -205px;
+}
+
+.proj_descricao 
+{
+	display:block;
+	margin-left: 250px;
+}
+
+#ProjetoDescricao
+{
+	width: 530px;
+}
+
+.proj_outros
+{
+	display:block;
+	margin-top: -120px;
+}
+
+svg
+{
+	display: block;
+	margin-top: -60px;
+	margin-bottom: 5px;
+	margin-left: 350px;
+	height: 400px;
 }
