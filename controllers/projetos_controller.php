@@ -14,7 +14,7 @@ class ProjetosController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid projeto', true));
+			$this->Session->setFlash(__('Projeto inválido.', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		
@@ -67,7 +67,7 @@ class ProjetosController extends AppController {
 					}
 					else {
 						$this->Projeto->getDataSource()->rollback($this->Projeto);
-						$this->Session->setFlash(__('The projeto could not be saved. Please, try again.', true));
+						$this->Session->setFlash(__('O projeto não pode ser salvo. Por favor, tente novamente.', true));
 					}
 				}
 			} 
@@ -133,12 +133,12 @@ class ProjetosController extends AppController {
 					if($success)
 					{
 						$this->Projeto->getDataSource()->commit($this->Projeto);
-						$this->Session->setFlash(__('Tá beleza!', true));
+						$this->Session->setFlash(__('Projeto salvo com sucesso.', true));
 						$this->redirect(array('action'=>'index'));
 					}
 					else {
 						$this->Projeto->getDataSource()->rollback($this->Projeto);
-						$this->Session->setFlash(__('The projeto could not be saved. Please, try again.', true));
+						$this->Session->setFlash(__('O projeto não pode ser salvo. Por favor, tente novamente.', true));
 					}
 				}
 			} 
@@ -157,14 +157,14 @@ class ProjetosController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for projeto', true));
+			$this->Session->setFlash(__('ID inválido', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Projeto->delete($id)) {
-			$this->Session->setFlash(__('Projeto deleted', true));
+			$this->Session->setFlash(__('Projeto deletedo com sucesso.', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Projeto was not deleted', true));
+		$this->Session->setFlash(__('O projeto não pode ser deletado. Por favor, tente novamente.', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }

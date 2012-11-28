@@ -11,7 +11,7 @@ class CriteriosController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid criterio', true));
+			$this->Session->setFlash(__('Critério inválido.', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('criterio', $this->Criterio->read(null, $id));
@@ -21,10 +21,10 @@ class CriteriosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Criterio->create();
 			if ($this->Criterio->save($this->data)) {
-				$this->Session->setFlash(__('The criterio has been saved', true));
+				$this->Session->setFlash(__('Critério salvo com sucesso.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The criterio could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('O critério não pode ser salvo. Por favor, tente novamente.', true));
 			}
 		}
 		$areas = $this->Criterio->Area->find('list', array('fields'=>'Area.nome'));
@@ -35,15 +35,15 @@ class CriteriosController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid criterio', true));
+			$this->Session->setFlash(__('Critério inválido.', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Criterio->save($this->data)) {
-				$this->Session->setFlash(__('The criterio has been saved', true));
+				$this->Session->setFlash(__('Critério salvo com sucesso.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The criterio could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('O critério não pode ser salvo. Por favor, tente novamente.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -56,14 +56,14 @@ class CriteriosController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for criterio', true));
+			$this->Session->setFlash(__('ID de critério inválido.', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Criterio->delete($id)) {
-			$this->Session->setFlash(__('Criterio deleted', true));
+			$this->Session->setFlash(__('Critério deletado com sucesso.', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Criterio was not deleted', true));
+		$this->Session->setFlash(__('O critério não pode ser deletado. Por favor, tente novamente.', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }

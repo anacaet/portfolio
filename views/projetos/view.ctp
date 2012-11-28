@@ -1,46 +1,46 @@
 <div class="projetos view">
 <h2><?php  __('Projeto');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Gerente'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Gerente'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $projeto['Projeto']['gerente']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Título'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Título'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $projeto['Projeto']['titulo']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Status'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Status'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $projeto['Status']['descricao']; ?>
 			&nbsp;
 		</dd>
 		
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Descrição'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Descrição'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $projeto['Projeto']['descricao']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Qtde de integrantes'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Qtde de integrantes'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $projeto['Projeto']['integrantes']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Data de início'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Data de início'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $time->format('d/m/Y',$projeto['Projeto']['data_inicio']); ?>
 			&nbsp;
 		</dd>
 		<?php if($projeto['Projeto']['data_fim']):?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Data de término'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Data de término'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $time->format('d/m/Y',$projeto['Projeto']['data_fim']); ?>
 			&nbsp;
 		</dd>
 		<?php endif;?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Pontuação');?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Pontuação');?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $projeto['ProjetoPonto']['soma_final']." pontos";?>
 			&nbsp;
 		</dd>
@@ -60,8 +60,8 @@
 		<li><?php echo $this->Html->link(__('Novo Critério', true), array('controller' => 'criterios', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<br />
 <div class="projeto_criterios">
-	<h3><?php __('Critérios');?></h3>
 	<?php if (!empty($projeto['Criterio'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>

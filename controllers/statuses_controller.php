@@ -10,7 +10,7 @@ class StatusesController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid status', true));
+			$this->Session->setFlash(__('Status inválido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('status', $this->Status->read(null, $id));
@@ -20,10 +20,10 @@ class StatusesController extends AppController {
 		if (!empty($this->data)) {
 			$this->Status->create();
 			if ($this->Status->save($this->data)) {
-				$this->Session->setFlash(__('The status has been saved', true));
+				$this->Session->setFlash(__('Status salvo com sucesso.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The status could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('O status não pode ser salvo. Por favor, tente novamente.', true));
 			}
 		}
 	}
@@ -48,14 +48,14 @@ class StatusesController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for status', true));
+			$this->Session->setFlash(__('ID inválido.', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Status->delete($id)) {
-			$this->Session->setFlash(__('Status deleted', true));
+			$this->Session->setFlash(__('Status deletedo com sucesso.', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Status was not deleted', true));
+		$this->Session->setFlash(__('Status não pode ser deletado. Por favor, tente novamente.', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }

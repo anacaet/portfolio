@@ -1,19 +1,19 @@
 <div class="criterios view">
 <h2><?php  __('Critério');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nome'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Nome'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $criterio['Criterio']['nome']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Área'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Área'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $this->Html->link($criterio['Area']['nome'], array('controller' => 'areas', 'action' => 'view', $criterio['Area']['id'])); ?>
 			&nbsp;
 		</dd>
 		<?php if($criterio['Criterio']['descricao']):?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Descrição'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Descrição'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $criterio['Criterio']['descricao']; ?>
 			&nbsp;
 		</dd>

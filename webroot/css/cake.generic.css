@@ -217,9 +217,10 @@ dt {
 	vertical-align: top;
 }
 dd {
-	margin-left: 10em;
-	margin-top: -2em;
-	vertical-align: top;
+	margin-bottom: 1.2em;
+    margin-left: 10em;
+    margin-top: 0.3em;
+    vertical-align: top;
 }
 
 /** Forms **/
@@ -342,7 +343,7 @@ div.message {
 	font-size: 140%;
 	font-weight: bold;
 	margin: 0 0 1em 0;
-	background: #c73e14;
+	background: #0583D3;
 	padding: 5px;
 }
 div.error-message {
@@ -578,13 +579,4 @@ div.code-coverage-results span.result-good {
 {
 	display:block;
 	margin-top: -120px;
-}
-
-svg
-{
-	display: block;
-	margin-top: -60px;
-	margin-bottom: 5px;
-	margin-left: 350px;
-	height: 400px;
 }

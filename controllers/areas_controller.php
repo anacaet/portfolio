@@ -10,7 +10,7 @@ class AreasController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid area', true));
+			$this->Session->setFlash(__('Área inválida.', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('area', $this->Area->read(null, $id));
@@ -20,25 +20,25 @@ class AreasController extends AppController {
 		if (!empty($this->data)) {
 			$this->Area->create();
 			if ($this->Area->save($this->data)) {
-				$this->Session->setFlash(__('The area has been saved', true));
+				$this->Session->setFlash(__('Área salva com sucesso.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The area could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('A área não pode ser salva. Por favor, tente novamente.', true));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid area', true));
+			$this->Session->setFlash(__('Área inválida.', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Area->save($this->data)) {
-				$this->Session->setFlash(__('The area has been saved', true));
+				$this->Session->setFlash(__('Área salva com sucesso.', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The area could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('A área não pode ser salva. Por favor, tente novamente.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -48,14 +48,14 @@ class AreasController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for area', true));
+			$this->Session->setFlash(__('ID de área inválido.', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Area->delete($id)) {
-			$this->Session->setFlash(__('Area deleted', true));
+			$this->Session->setFlash(__('Área deleteda com sucesso.', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Area was not deleted', true));
+		$this->Session->setFlash(__('Área não pode ser deletada. Por favor, tente novamente.', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }

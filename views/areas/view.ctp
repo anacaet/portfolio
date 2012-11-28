@@ -1,20 +1,20 @@
 <div class="areas view">
 <h2><?php  __('Área');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nome'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php echo $class;?>><?php __('Nome'); ?></dt>
+		<dd<?php echo $class;?>>
 			<?php echo $area['Area']['nome']; ?>
 			&nbsp;
 		</dd>
 		<?php if($area['Area']['descricao']):?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Descrição'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Descrição'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $area['Area']['descricao']; ?>
 			&nbsp;
 		</dd>
 		<?php endif;?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Peso'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt<?php  echo $class;?>><?php __('Peso'); ?></dt>
+		<dd<?php  echo $class;?>>
 			<?php echo $area['Area']['peso']; ?>
 			&nbsp;
 		</dd>
